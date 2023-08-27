@@ -1,0 +1,66 @@
+alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+def set():
+  
+  text = input("Type your message:\n").lower()
+  shift = int(input("Type the shift number:\n"))
+  
+  
+  def caesar(msg):
+  
+    t=[]
+    e=[]
+    
+    for i in text:
+      t.append(i)  
+    print(t)  
+    for i in text:
+      if i not in alphabet:
+        e.append(i)
+      else:  
+        n=alphabet.index(i)
+        x=(n+shift)%26
+        i=alphabet[x]
+        e.append(i)
+      
+    print(e)
+    e_t=''
+    for i in e:
+      e_t=e_t+i
+      
+    print(e_t)
+  
+  
+    t=[]
+    d=[]
+    
+    for i in e_t:
+      t.append(i)  
+    print(t)  
+    for i in e_t:
+      if i not in alphabet:
+        d.append(i)
+      else:  
+        n=alphabet.index(i)
+        x=(n-shift)%26
+        i=alphabet[x]
+        d.append(i)
+      
+    print(d)
+    d_t=''
+    for i in d:
+      d_t=d_t+i
+      
+    print(d_t)
+
+  caesar(text)
+
+  
+cont=True
+
+while cont:
+  set()
+  
+  ques=input('wanna continue? yes or no?: ')  
+  if ques=='no':
+    cont=False
+  

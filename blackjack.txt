@@ -1,0 +1,115 @@
+import random
+#from art import logo
+from replit import clear
+
+
+def blackjack():
+  print(logo)
+  cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
+  player=[]
+  comp=[]
+  c_sum=0
+  j=0
+  u_sum=0
+  k=2
+  for i in range(0,2):
+    player.append(random.choice(cards)) 
+  
+  print(player)
+  for i in player:
+    u_sum=u_sum+i
+  
+  # print('\n')
+  add=True
+  while add:
+    comp.append(random.choice(cards)) 
+    # print(c)
+    c_sum=c_sum+comp[j]
+    if c_sum>21 and cards[0] in comp:
+      h=comp.index(11)
+      comp[h]=1
+      c_sum=c_sum-10
+      
+    # print(s)  
+    if c_sum>17:
+      add=False
+    j+=1  
+      
+     
+    
+      
+      
+  # print('\n')
+  # print(s)
+  # print(c) 
+  
+  
+  
+  next=input('card? type "y" or "n": ')
+  if next=='n':
+      user=False
+  else:
+      user=True
+  while user:
+    player.append(random.choice(cards))
+    # print(f'you:{u}')
+    u_sum=u_sum+player[k]
+    if u_sum>21:
+      if cards[0] in player:
+        a=player.index(11)
+        player[a]=1
+        u_sum=u_sum-10
+      else:  
+  
+        # print(u_sum)
+        print(f'you:{player}')  
+        print('you lose')
+        user=False
+        break
+    print(f'you:{player}')    
+    next=input('card? ')
+    if next=='n':
+      user=False
+    
+    k+=1  
+     
+  if u_sum<=21:
+    if c_sum<=21:
+      if u_sum>c_sum:
+        if u_sum==21:
+          print('blackjack')
+        print('you win')
+      elif u_sum==c_sum:
+        if u_sum==21:
+          print('blackjack')
+        
+        print('draw')
+      else:
+        print('you lose')
+    else:
+       print('you win')
+     
+  
+  
+    
+  # print(c_sum)
+  print(f'comp:{comp}') 
+blackjack()  
+next_game=input('another game? type "y" or "n": ')
+if next_game=='y':
+  go_on=True
+else:
+  go_on=False
+
+while go_on:
+  clear()
+  blackjack()
+  next_game=input('another game? type "y" or "n": ')
+  if next_game=='y':
+    go_on=True
+  else:
+    go_on=False
+  
+
+  
+  
