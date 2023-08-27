@@ -1,0 +1,61 @@
+from game_data import data
+from replit import clear
+from art import logo, vs
+import random
+
+a=random.choice(data)
+b=random.choice(data)
+n=0
+
+def f_c(x, y):
+  print(logo)
+  print(f"Compare A: {a['name']}, {a['description']}, {a['country']}")
+  print(vs)
+  print(f"Against B: {b['name']}, {b['description']}, {b['country']}")
+  global m
+  global ans
+  ans=input('who has more followers. "A" or "B": ').upper()
+  
+  if ans=="A":
+    ans=a
+  else:
+    ans=b
+    
+  
+  if x['follower_count']>y['follower_count']:
+    m=a
+  else:
+    m=b
+  print('\n')
+  print(f"{ans['name']}, {list(ans.items())[1]}")
+  print('\n')
+  # print(a)  
+  print(f"{m['name']}, {list(m.items())[1]}")
+  print('\n')
+  if ans==m:
+    print('right')
+    # n+=1
+  else:
+    print('wrong')
+    clear()
+    print(f"{ans['name']}, {list(ans.items())[1]}")
+    print('\n')
+    print(f"{m['name']}, {list(m.items())[1]}\n")
+    print(f'your final score is {n}')
+
+f_c(a, b)
+
+while ans==m:
+  n=n+1
+  clear()
+  print(f'right. your current score is {n}')
+  a=b
+  b=random.choice(data)
+  print('\n')
+  f_c(a, b)
+
+
+
+
+  
+

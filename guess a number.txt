@@ -1,0 +1,28 @@
+import random
+
+num=random.randint(1,100)
+difficulty=input('easy or hard: ')
+if difficulty=='easy':
+  n=10
+elif difficulty=='hard':
+  n=5
+
+while n!=0:
+  print(f'you have {n} attempts')
+  guess=int(input('guess a number b/w 1 to 100: '))
+  
+  if guess>num:
+    print('too high')
+  elif guess<num:
+    print('too low')
+  elif guess==num:
+    print('\n')
+    print('right answer')
+    break
+ # print(f'{n-1} attempts left')  
+
+  n-=1
+if guess!=num:
+  print('\n')
+  print('you lose')
+print(f'number is {num}')

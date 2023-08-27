@@ -1,0 +1,38 @@
+from replit import clear
+
+x=float(input('x: '))
+o=input('op: ')
+y=float(input('y: '))
+# op={'+': x+y, '-': x-y}
+def calc(x, y):
+  op={'+': x+y, '-': x-y, '*': x*y, '/': x/y}
+  global z
+  if o=='+':
+    z=op['+']
+    # print(z)
+  elif o=='-':
+    z=op['-']
+    # print(z)
+  elif o=='*':
+    z=op['*']
+  else:
+    z=op['/']
+  z=round(z,2)  
+  print(z)  
+calc(x, y)
+# print(z)
+cont=True
+while cont:
+  next=input('proceed or new: ')
+  if next=='y':
+    x=z
+  else:
+    clear()
+    x=float(input('x: '))
+    
+  
+  # print(x)
+  o=input('op: ')
+  y=float(input('y: '))
+  calc(x,y)
+  # cont=input('y or n: ')

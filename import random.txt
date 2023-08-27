@@ -1,0 +1,58 @@
+import random
+
+cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
+u=[]
+c=[]
+s=0
+j=0
+y=0
+for i in range(0,2):
+  u.append(random.choice(cards)) 
+
+print(u)
+# print('\n')
+add=True
+while add:
+  c.append(random.choice(cards)) 
+  # print(c)
+  s=s+c[j]
+    
+  # print(s)  
+  if s>17:
+    add=False
+  j+=1  
+    
+   
+  
+    
+    
+# print('\n')
+# print(s)
+# print(c) 
+
+
+
+next=input('card? ')
+user=True
+while next!='n':
+  u.append(random.choice(cards))
+  print(u)
+  next=input('card? ')
+for x in u:
+  y=y+x
+if y>21:
+  print('you lose')
+else:
+  if s<=21:
+    if y>s:
+      print('you win')
+    elif y==s:
+      print('draw')
+    else:
+      print('you lose')
+  else:
+    print('you win')
+print(s)
+print(c) 
+  
+  

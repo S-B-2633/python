@@ -1,0 +1,112 @@
+import random
+from hangman_words import word_list
+stages = ['''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ / \  |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ /    |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|   |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+  |   |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+      |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+      |
+      |
+      |
+      |
+=========
+''']
+# word_list = ["aardvark", "baboon", "camel"]
+cw=random.choice(word_list)
+d=[]
+for x in cw:
+  d.append('_')
+
+e=''
+y=0
+# for x in d:
+#    e=e+d[y]+' '
+#    y+=1
+
+# print(e)
+w=[]
+for x in cw:
+  w.append(x)
+
+b=int(len(stages))
+c=b-1
+end_of_game=False
+
+  
+while not end_of_game:
+  a=0
+  let=input('enter a letter: ')
+  if let in e:
+    print('already guessed')
+  f=0
+  for x in w:
+    if let==w[a]:
+      d[a]=w[a]
+
+    a=a+1
+  # print(d) 
+  e=''
+  for x in d:
+   e=e+d[f]+' '
+   f+=1   
+   
+
+  print(e)
+
+    
+  if d==w:
+    print('you won')
+    end_of_game=True
+  if let not in w:
+    print(stages[c])
+    c=c-1
+    if c<0:
+      print('game over')
+      print(f"word is {cw}")
+      end_of_game=True
+    
